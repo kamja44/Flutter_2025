@@ -10,8 +10,8 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Colors.black,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: colors
                 .map(
                   (e) => Container(
