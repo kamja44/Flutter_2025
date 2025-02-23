@@ -4,7 +4,7 @@ void main() {
   runApp(
     MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color(0xFF335CB0),
         body: Image.asset('asset/img/logo.png'),
       ),
     ),
