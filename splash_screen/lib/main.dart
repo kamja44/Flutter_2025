@@ -24,6 +24,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('asset/img/logo.png'),
+            const SizedBox(height: 28),
             const CircularProgressIndicator(
               color: Colors.white,
             )
