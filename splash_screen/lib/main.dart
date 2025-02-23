@@ -9,6 +9,9 @@ void main() {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('asset/img/logo.png'),
+            const CircularProgressIndicator(
+              color: Colors.white,
+            )
           ],
         ),
       ),
