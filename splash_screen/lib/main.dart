@@ -5,7 +5,12 @@ void main() {
     MaterialApp(
       home: Scaffold(
         backgroundColor: const Color(0xFF335CB0),
-        body: Image.asset('asset/img/logo.png'),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('asset/img/logo.png'),
+          ],
+        ),
       ),
     ),
   );
