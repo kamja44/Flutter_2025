@@ -16,14 +16,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF335CB0),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset('asset/img/logo.png'),
-          const CircularProgressIndicator(
-            color: Colors.white,
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 32,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('asset/img/logo.png'),
+            const CircularProgressIndicator(
+              color: Colors.white,
+            )
+          ],
+        ),
       ),
     );
   }
