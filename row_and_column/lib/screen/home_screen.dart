@@ -10,9 +10,11 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           color: Colors.black,
-          child: Row(
+          width: double.infinity,
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min, // min은 필요한 공간만 차지함
+            mainAxisSize: MainAxisSize.max, // min은 필요한 공간만 차지함
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: colors
                 .map(
                   (e) => Container(
