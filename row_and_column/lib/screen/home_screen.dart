@@ -11,20 +11,30 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           color: Colors.black,
           height: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max, // min은 필요한 공간만 차지함
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: colors
-                .map(
-                  (e) => Container(
-                    height: 50,
-                    width: 50,
-                    color: e,
-                  ),
-                )
-                .toList(),
-          ),
+          child: Column(children: [
+            Expanded(
+              child: Container(
+                height: 50.0,
+                width: 50.0,
+                color: Colors.red,
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                height: 50.0,
+                width: 50.0,
+                color: Colors.orange,
+              ),
+            ),
+            Expanded(
+              child: Container(
+                height: 50.0,
+                width: 50.0,
+                color: Colors.yellow,
+              ),
+            ),
+          ]),
         ),
       ),
     );
