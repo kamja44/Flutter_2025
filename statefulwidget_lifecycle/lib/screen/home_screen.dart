@@ -47,6 +47,7 @@ class kamjaWidget extends StatefulWidget {
 }
 
 class _kamjaWidgetState extends State<kamjaWidget> {
+  Color color = Colors.red;
   @override
   void initState() {
     print('3. stateful Widget initstate');
@@ -62,7 +63,14 @@ class _kamjaWidgetState extends State<kamjaWidget> {
   @override
   Widget build(BuildContext context) {
     print('5. stateful widget build');
-    return Container(color: Colors.red, width: 50, height: 50);
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          color = color == Colors.red ? Colors.blue : Colors.red;
+        });
+      },
+      child: Container(color: color, width: 50, height: 50),
+    );
   }
 
   @override
