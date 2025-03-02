@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   Color color = Colors.blue;
 
-  HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    print('build 실행!!!');
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
@@ -20,6 +27,7 @@ class HomeScreen extends StatelessWidget {
                 } else {
                   color = Colors.blue;
                 }
+                setState(() {});
               },
               child: Text('색상 변경!'),
             ),
