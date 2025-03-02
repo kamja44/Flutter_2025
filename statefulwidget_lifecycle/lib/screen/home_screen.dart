@@ -9,6 +9,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool show = false;
+  Color color = Colors.red;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +19,15 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (show) kamjaWidget(),
+            if (show)
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    color = color == Colors.red ? Colors.blue : Colors.red;
+                  });
+                },
+                child: kamjaWidget(color: color),
+              ),
             SizedBox(height: 32),
             ElevatedButton(
               onPressed: () {
@@ -35,7 +45,8 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class kamjaWidget extends StatefulWidget {
-  kamjaWidget({super.key}) {
+  final Color color;
+  kamjaWidget({super.key, required this.color}) {
     print('1. Stateful widget Constructor');
   }
 
@@ -47,7 +58,6 @@ class kamjaWidget extends StatefulWidget {
 }
 
 class _kamjaWidgetState extends State<kamjaWidget> {
-  Color color = Colors.red;
   @override
   void initState() {
     print('3. stateful Widget initstate');
@@ -63,14 +73,7 @@ class _kamjaWidgetState extends State<kamjaWidget> {
   @override
   Widget build(BuildContext context) {
     print('5. stateful widget build');
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          color = color == Colors.red ? Colors.blue : Colors.red;
-        });
-      },
-      child: Container(color: color, width: 50, height: 50),
-    );
+    return Container(color: widget.color, width: 50, height: 50);
   }
 
   @override
