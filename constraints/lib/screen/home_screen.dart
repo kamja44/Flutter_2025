@@ -12,8 +12,10 @@ class HomeScreen extends StatelessWidget {
           width: 200,
           color: Colors.red,
           // 자식 위젯이 어디를 기준으로 정렬할지 모르면 자식의 크기 설정이 무의미하다.
-          child: Column(
-            children: [Container(height: 50, width: 50, color: Colors.blue)],
+          child: Align(
+            // alignment: Alignment.centerRight,
+            alignment: Alignment(1, 0), // 1과 -1이 최대값 => x, y 좌표로 정렬한다.
+            child: Container(height: 50, width: 50, color: Colors.blue),
           ),
         ),
       ),
