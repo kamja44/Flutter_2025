@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:random_number_generator/constant/color.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List<int> numbers = [123, 456, 789];
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +24,15 @@ class HomeScreen extends StatelessWidget {
               // 제목과 아이콘
               _Header(),
               // 숫자
-              _Body(),
+              _Body(numbers: numbers),
               // 버튼
-              _Footer(),
+              _Footer(
+                onPressed: () {
+                  setState(() {
+                    numbers = [999, 888, 777];
+                  });
+                },
+              ),
             ],
           ),
         ),
@@ -29,12 +42,14 @@ class HomeScreen extends StatelessWidget {
 }
 
 class _Footer extends StatelessWidget {
-  const _Footer({super.key});
+  final VoidCallback onPressed;
+
+  const _Footer({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: redColor,
         foregroundColor: Colors.white,
@@ -45,7 +60,8 @@ class _Footer extends StatelessWidget {
 }
 
 class _Body extends StatelessWidget {
-  const _Body({super.key});
+  final List<int> numbers;
+  const _Body({super.key, required this.numbers});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +69,7 @@ class _Body extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:
-            [123, 456, 789]
+            numbers
                 .map((e) => e.toString().split(''))
                 .map(
                   (item) => Row(
