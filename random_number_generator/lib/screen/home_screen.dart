@@ -63,9 +63,10 @@ class _Body extends StatelessWidget {
                     children:
                         item
                             .map(
-                              (number) => Text(
-                                number.toString(),
-                                style: TextStyle(color: Colors.white),
+                              (number) => Image.asset(
+                                'asset/img/$number.png',
+                                width: 50,
+                                height: 70,
                               ),
                             )
                             .toList(),
