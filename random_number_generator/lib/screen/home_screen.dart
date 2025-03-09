@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:random_number_generator/constant/color.dart';
+import 'dart:math';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,18 +27,27 @@ class _HomeScreenState extends State<HomeScreen> {
               // 숫자
               _Body(numbers: numbers),
               // 버튼
-              _Footer(
-                onPressed: () {
-                  setState(() {
-                    numbers = [999, 888, 777];
-                  });
-                },
-              ),
+              _Footer(onPressed: generateRandomNumber),
             ],
           ),
         ),
       ),
     );
+  }
+
+  generateRandomNumber() {
+    final rand = Random();
+
+    final Set<int> newNumbers = {};
+
+    while (newNumbers.length < 3) {
+      final randomNumber = rand.nextInt(1000);
+      newNumbers.add(randomNumber);
+    }
+
+    setState(() {
+      numbers = newNumbers.toList();
+    });
   }
 }
 
