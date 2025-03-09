@@ -24,12 +24,16 @@ class _SettingScreenState extends State<SettingScreen> {
             children: [
               _Number(maxNumber: maxNumber),
               _Slider(value: maxNumber, onChanged: onSliderChanged),
-              _Button(),
+              _Button(onPressed: onSavePressed),
             ],
           ),
         ),
       ),
     );
+  }
+
+  onSavePressed() {
+    Navigator.of(context).pop(maxNumber.toInt());
   }
 
   onSliderChanged(double value) {
@@ -70,7 +74,8 @@ class _Slider extends StatelessWidget {
 }
 
 class _Button extends StatelessWidget {
-  const _Button({super.key});
+  final VoidCallback onPressed;
+  const _Button({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -79,9 +84,7 @@ class _Button extends StatelessWidget {
         backgroundColor: redColor,
         foregroundColor: Colors.white,
       ),
-      onPressed: () {
-        Navigator.of(context).pop();
-      },
+      onPressed: onPressed,
       child: Text('저장!!'),
     );
   }
