@@ -26,6 +26,12 @@ class RouteOneScreen extends StatelessWidget {
         ),
         OutlinedButton(
           onPressed: () {
+            print(Navigator.of(context).canPop());
+          },
+          child: Text('can pop'),
+        ),
+        OutlinedButton(
+          onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
