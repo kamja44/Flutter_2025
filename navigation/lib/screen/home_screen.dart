@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         OutlinedButton(
           onPressed: () async {
-            final result = Navigator.of(context).push(
+            final result = await Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
                   return RouteOneScreen(number: 20);
