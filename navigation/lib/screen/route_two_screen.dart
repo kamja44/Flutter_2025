@@ -24,6 +24,31 @@ class RouteTwoScreen extends StatelessWidget {
           },
           child: Text('Push Route Three'),
         ),
+        OutlinedButton(
+          onPressed: () {
+            // [Home, RouteOne, RouteTwo]
+            // push - [Home, RouteOne, RouteTwo, RouteThree]
+            // pushR - [Home, RouteOne, RouteThree] => RouteTwo가 삭제되어서 들어감 => pop시 RouteTwo가 아닌 RouteOne으로 감
+            // route stack의 top을 제거하고 새로운 route를 추가하는 것
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return RouteThreeScreen();
+                },
+                settings: RouteSettings(arguments: 99999),
+              ),
+            );
+          },
+          child: Text('Push Replacement'),
+        ),
+        OutlinedButton(
+          onPressed: () {
+            Navigator.of(
+              context,
+            ).pushReplacementNamed('/three', arguments: 99999);
+          },
+          child: Text('Push Replacement Named'),
+        ),
       ],
     );
   }
